@@ -131,6 +131,7 @@ int main(){
      								cin>>tipo_mesa;
      								listamesas.push_back(new MesasBlackJack(numero_mesa,tipo_mesa));
      								cout<<"La Mesa fue agregada exitosamente!!!";
+     								cout<<"Asigne  un jugador a la mesa "<<endl;
      								break;
      							}
      							case 2:{
