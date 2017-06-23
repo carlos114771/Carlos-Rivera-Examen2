@@ -25,3 +25,6 @@ void Cartas::setColor(string color){
 string Cartas::getColor(){
    return color;
 }
+
+
+

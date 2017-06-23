@@ -8,6 +8,9 @@
 #include "Jugadores.h"
 #include "MesasBlackJack.h"
 #include <vector>
+#include <sstream>
+#include <stdlib.h>
+#include <string.h>
 using namespace std;
 int menuPersona();
 int menuPrincipal();
@@ -46,6 +49,7 @@ int main(){
      						cin>>sueldo;
      						listaAdministrador.push_back(new Administrador(experiencia,rango,sueldo,nombre,edad,id));
      						cout<<"El Administrador fue agregado exitosamente!! "<<endl;
+     						cout<<endl;
      						break;
      					}
      					case 2:{
@@ -54,7 +58,24 @@ int main(){
      						string id;
      						string dificultad;
      						double dinero_casino;
+     						cout<<"Ingrese su nombre: "<<endl;
+     						cin>>nombre;
+     						cout<<"Ingrese su edad: "<<endl;
+     						cin>>edad;
+     						cout<<"Ingrese su id: "<<endl;
+     						cin>>id;
+     						cout<<"Tipo de Dificultad "<<endl
+     							<<" Facil "<<endl
+     							<<" Intermedio "<<endl
+     							<<" Difil "<<endl;
+     						cout<<endl;
+     						cout<<"Ingrese la dificultad: "<<endl;
+     						cin>>dificultad;
+     						cout<<"Dinero del Casino: "<<endl;
+     						cin>>dinero_casino;
+     						listarepartidor.push_back(new Repartidor(dificultad,dinero_casino,nombre,edad,id));
      						cout<<"El Repartidor fue agregado exitosamente!!! "<<endl;
+     						cout<<endl;
      						break;
      					}
      					case 3:{
@@ -78,6 +99,7 @@ int main(){
      						cin>>dinero;
      						listajugadores.push_back(new Jugadores(lugar,apodo,dinero,nombre,edad,id));
      						cout<<"El Jugador fue agregado exitosamente!!! "<<endl;
+     						cout<<endl;
      						break;
      					}
      					case 4:{
@@ -233,3 +255,81 @@ int menuAdministrador(){
 	return opcion;
 }
 
+string AleatorioValor() {
+	int random;
+	stringstream aleat;
+	string aleat2;
+	for (int i = 0; i < 52; ++i){
+		random = rand() % 10 + 0;
+		if (random == 2){
+			aleat << "2";
+		} else if (random == 3){
+			aleat << "3";
+		} else if (random == 4){
+			aleat << "4";
+		} else if (random == 5){
+			aleat << "5";
+		} else if (random == 6){
+			aleat << "6";
+		} else if (random == 7){
+			aleat << "7";
+		}else if(random==8){
+			aleat<<"8";
+		}else if(random==9){
+			aleat<<"9";
+		}else if(random==10){
+			aleat<<"10";
+		}else if(random=='J'){
+			aleat<<"10";
+		}else if(random=='Q'){
+			aleat<<"10";
+		}else if(random=='K'){
+			aleat<<"10";
+		}else if(random=='A'){
+			aleat<<"11";
+		} else {
+			aleat << random;
+		}
+	}
+	aleat2 = aleat.str();
+	return aleat2;
+}
+string AleatorioSimbolo() {
+	int random;
+	stringstream aleat;
+	string aleat2;
+	for (int i = 0; i < 4; ++i){
+		random = rand() % 10 + 0;
+		if (random == 2){
+			aleat << "2";
+		} else if (random == 3){
+			aleat << "3";
+		} else if (random == 4){
+			aleat << "4";
+		} else if (random == 5){
+			aleat << "5";
+		} else if (random == 6){
+			aleat << "6";
+		} else if (random == 7){
+			aleat << "7";
+		}else if(random==8){
+			aleat<<"8";
+		}else if(random==9){
+			aleat<<"9";
+		}else if(random==10){
+			aleat<<"10";
+		}else if(random=='J'){
+			aleat<<"10";
+		}else if(random=='Q'){
+			aleat<<"10";
+		}else if(random=='K'){
+			aleat<<"10";
+		}else if(random=='A'){
+			aleat<<"11";
+		} else {
+			aleat << random;
+		}
+	}
+	aleat2 = aleat.str();
+	return aleat2;
+}
