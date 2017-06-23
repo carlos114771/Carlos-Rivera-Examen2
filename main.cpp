@@ -14,6 +14,8 @@
 using namespace std;
 int menuPersona();
 int menuPrincipal();
+void listaJugador(vector<Jugadores*>);
+void listaRepartidor(vector<Repartidor*>);
 int menuAdministrador();
 int main(){
 	vector<Persona*> listapersona;
@@ -132,6 +134,7 @@ int main(){
      								listamesas.push_back(new MesasBlackJack(numero_mesa,tipo_mesa));
      								cout<<"La Mesa fue agregada exitosamente!!!";
      								cout<<"Asigne  un jugador a la mesa "<<endl;
+
      								break;
      							}
      							case 2:{
@@ -333,4 +336,26 @@ string AleatorioSimbolo() {
 	}
 	aleat2 = aleat.str();
 	return aleat2;
+}
+
+void listaJugador(vector<Jugadores*> listajugadores){
+    cout<<"Lista de Jugadores"<<endl;
+    for(int i=0;i<listajugadores.size();i++){
+        cout<<"Nombre: "<<listajugadores.at(i)->getNombre()<<endl;
+        cout<<"Edad: "<<listajugadores.at(i)->getEdad()<<endl;
+        cout<<"Id: "<<listajugadores.at(i)->getId()<<endl;
+        cout<<"Apodo: "<<listajugadores.at(i)->getApodo()<<endl;
+    }
+
+}
+
+void listaRepartidor(vector<Repartidor*> listarepartidor){
+    cout<<"Lista de Repartidores"<<endl;
+    for(int i=0;i<listarepartidor.size();i++){
+        cout<<"Nombre: "<<listarepartidor.at(i)->getNombre()<<endl;
+        cout<<"Edad: "<<listarepartidor.at(i)->getEdad()<<endl;
+        cout<<"Id: "<<listarepartidor.at(i)->getId()<<endl;
+        cout<<"Dificultad: "<<listarepartidor.at(i)->getDificultad()<<endl;
+    }
+
 }
