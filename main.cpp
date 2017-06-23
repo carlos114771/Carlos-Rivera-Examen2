@@ -16,6 +16,8 @@ int main(){
 	vector<Persona*> listapersona;
 	vector<Administrador*> listaAdministrador;
 	vector<Jugadores*> listajugadores;
+	vector<Repartidor*> listarepartidor;
+	vector<MesasBlackJack*> listamesas;
     bool salirTodo =false;
     while(!salirTodo){
 		switch(menuPrincipal()){
@@ -42,7 +44,7 @@ int main(){
      						cin>>rango;
      						cout<<" Sueldo a ganar: "<<endl;
      						cin>>sueldo;
-     						listaAdministrador.push_back(new Administrador(experiencia,rango,sueldo,nombre,edad,rango));
+     						listaAdministrador.push_back(new Administrador(experiencia,rango,sueldo,nombre,edad,id));
      						break;
      					}
      					case 2:{
@@ -96,9 +98,33 @@ int main(){
      					while(!salirAdmin){
      						switch(menuAdministrador()){
      							case 1:{
+     								int numero_mesa;
+     								string tipo_mesa;
+     								cout<<"Ingrese el numero de mesa "<<endl;
+     								cin>>numero_mesa;
+     								cout<<"Ingres el tipo de mesa "<<endl;
+     								cin>>tipo_mesa;
+     								listamesas.push_back(new MesasBlackJack(numero_mesa,tipo_mesa));
      								break;
      							}
      							case 2:{
+     								int numero;
+     								int numero_mesa;
+     								string tipo_mesa;
+     								for (int i = 0; i < listamesas.size(); ++i){
+     									cout<<i<<")"<<listamesas.at(i)->getNumero_mesa();
+     									cout<<i<<")"<<listamesas.at(i)->getTipo_mesa();
+     									cout<<"Ingrese la posicion que desea modificar "<<endl;
+     									cin>>numero;
+     									cout<<"Ingrese el numero de mesa "<<endl;
+     									cin>>numero_mesa;
+     									cout<<"Ingrese el tipo de mesa "<<endl;
+     									cin>>tipo_mesa;
+     									for (int j = 0; j < listamesas.size(); ++j){
+     										listamesas.at(j)->setNumero_mesa(numero_mesa);
+     										listamesas.at(j)->setTipo_mesa(tipo_mesa);
+     									}
+     								}
      								break;
      							}
      							case 3:{
@@ -128,7 +154,6 @@ int main(){
      		}
      	}
      }
-     
      return 0;
 }
 
@@ -197,3 +222,4 @@ int menuAdministrador(){
 	} while (!valido);
 	return opcion;
 }
+

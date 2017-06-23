@@ -3,6 +3,9 @@
 Persona::Persona(string nombre,int edad,string id){
 	this->nombre=nombre;
 	this->edad=edad;
+	if(id.size()>4){
+		cout<<"Su id tiene que ser de cuatro digitos "<<endl;
+	}
 	this->id=id;
 }
 Persona::Persona(){

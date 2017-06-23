@@ -11,17 +11,17 @@ using namespace std;
 class MesasBlackJack{
 	protected:
 		int numero_mesa;
-		int tipo_mesa;
+		string tipo_mesa;
 		Repartidor* repartidor;
 		Jugadores* jugador;
 	public:
-		MesasBlackJack(int,int);
+		MesasBlackJack(int,string);
 		MesasBlackJack();
 		int getNumero_mesa();
 		void setNumero_mesa(int);
 
-		int getTipo_mesa();
-		void setTipo_mesa(int);
+		string getTipo_mesa();
+		void setTipo_mesa(string);
 
 
 		Repartidor* getRepartidor();

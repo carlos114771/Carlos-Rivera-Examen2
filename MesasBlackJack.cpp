@@ -1,6 +1,6 @@
 #include "MesasBlackJack.h"
 
-MesasBlackJack::MesasBlackJack(int numero_mesa,int tipo_mesa){
+MesasBlackJack::MesasBlackJack(int numero_mesa,string tipo_mesa){
 	this->numero_mesa=numero_mesa;
 	this->tipo_mesa=tipo_mesa;
 }
@@ -12,10 +12,10 @@ MesasBlackJack::MesasBlackJack(){
 int MesasBlackJack::getNumero_mesa(){
    return numero_mesa;
 }
-void MesasBlackJack::setTipo_mesa(int tipo_mesa){
+void MesasBlackJack::setTipo_mesa(string tipo_mesa){
    this-> tipo_mesa=tipo_mesa;
 }
-int MesasBlackJack::getTipo_mesa(){
+string MesasBlackJack::getTipo_mesa(){
    return tipo_mesa;
 }
 
