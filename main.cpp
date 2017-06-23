@@ -34,17 +34,18 @@ int main(){
      						double sueldo;
      						cout<<"Ingrese el Nombre: "<<endl;
      						cin>>nombre;
-     						cout<<" Ingrese la edad: "<<endl;
+     						cout<<"Ingrese la edad: "<<endl;
      						cin>>edad;
-     						cout<<" Ingrese el Id: "<<endl;
+     						cout<<"Ingrese el Id: "<<endl;
      						cin>>id;
-     						cout<< " Ingrese su experiencia laboral: "<<endl;
+     						cout<< "Ingrese su experiencia laboral: "<<endl;
      						cin>>experiencia;
      						cout<< "Ingrese su rango laboral: "<<endl;
      						cin>>rango;
-     						cout<<" Sueldo a ganar: "<<endl;
+     						cout<<"Sueldo a ganar: "<<endl;
      						cin>>sueldo;
      						listaAdministrador.push_back(new Administrador(experiencia,rango,sueldo,nombre,edad,id));
+     						cout<<"El Administrador fue agregado exitosamente!! "<<endl;
      						break;
      					}
      					case 2:{
@@ -53,6 +54,7 @@ int main(){
      						string id;
      						string dificultad;
      						double dinero_casino;
+     						cout<<"El Repartidor fue agregado exitosamente!!! "<<endl;
      						break;
      					}
      					case 3:{
@@ -62,19 +64,20 @@ int main(){
      						string lugar;
      						string apodo;
      						double dinero;
-     						cout<<" Ingrese su nombre: "<<endl;
+     						cout<<"Ingrese su nombre: "<<endl;
      						cin>>nombre;
-     						cout<<" Ingrese la edad: "<<endl;
+     						cout<<"Ingrese la edad: "<<endl;
      						cin>>edad;
-     						cout<<" Ingrese su id: "<<endl;
+     						cout<<"Ingrese su id: "<<endl;
      						cin>>id;
-     						cout<<" Ingrese su lugar de procedencia: "<<endl;
+     						cout<<"Ingrese su lugar de procedencia: "<<endl;
      						cin>>lugar;
-     						cout<<" Ingrese su apodo: "<<endl;
+     						cout<<"Ingrese su apodo: "<<endl;
      						cin>>apodo;
-     						cout<<" Ingrese el dinero que lleva: "<<endl;
+     						cout<<"Ingrese el dinero que lleva: "<<endl;
      						cin>>dinero;
      						listajugadores.push_back(new Jugadores(lugar,apodo,dinero,nombre,edad,id));
+     						cout<<"El Jugador fue agregado exitosamente!!! "<<endl;
      						break;
      					}
      					case 4:{
@@ -88,9 +91,9 @@ int main(){
      		case 2:{
      			string nombre;
      			string id;
-     			cout<<" Ingrese su Nombre: ";
+     			cout<<"Ingrese su Nombre: ";
      			cin>>nombre;
-     			cout<<" Ingrese su id: ";
+     			cout<<"Ingrese su id: ";
      			cin>>id;
      			for (int i = 0; i < listaAdministrador.size(); ++i){
      				if(listaAdministrador.at(i)->getNombre()== nombre && listaAdministrador.at(i)->getId()==id){
@@ -105,6 +108,7 @@ int main(){
      								cout<<"Ingres el tipo de mesa "<<endl;
      								cin>>tipo_mesa;
      								listamesas.push_back(new MesasBlackJack(numero_mesa,tipo_mesa));
+     								cout<<"La Mesa fue agregada exitosamente!!!";
      								break;
      							}
      							case 2:{
@@ -124,10 +128,16 @@ int main(){
      										listamesas.at(j)->setNumero_mesa(numero_mesa);
      										listamesas.at(j)->setTipo_mesa(tipo_mesa);
      									}
+										cout<<"La Mesa fue modificada "<<endl;     									
      								}
      								break;
      							}
      							case 3:{
+     								int opcion;
+            						cout<<"Ingrese la posicion a eliminar"<<endl;
+            						cin>>opcion;
+            						listamesas.erase(listamesas.begin()+opcion);
+            						cout<<"La Mesa fue eliminada "<<endl;
      								break;
      							}
      							case 4:{
@@ -140,7 +150,7 @@ int main(){
      			}
      			for (int i = 0; i < listajugadores.size(); ++i){
      				if(listajugadores.at(i)->getNombre()==nombre && listajugadores.at(i)->getId()==id){
-
+     					cout<<"Bienvenido"<<endl;
      				}
      			}	
      			break;
