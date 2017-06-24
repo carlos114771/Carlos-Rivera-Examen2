@@ -8,14 +8,14 @@ using namespace std;
 #define CARTAS_H
 class Cartas{
 	protected:
-		string valor;
+		int valor;
 		string simbolo;
 		string color;
 	public:
-		Cartas(string,string,string);
+		Cartas(int,string,string);
 		Cartas();
-		string getValor();
-		void setValor(string);
+		int getValor();
+		void setValor(int);
 
 		string getSimbolo();
 		void setSimbolo(string);

@@ -19,6 +19,7 @@ void listaRepartidor(vector<Repartidor*>);
 int menuAdministrador();
 int main(){
 	vector<Persona*> listapersona;
+	vector<Cartas*> listacartas;
 	vector<Administrador*> listaAdministrador;
 	vector<Jugadores*> listajugadores;
 	vector<Repartidor*> listarepartidor;
@@ -55,6 +56,7 @@ int main(){
      						break;
      					}
      					case 2:{
+     						int contador=0;
      						string nombre;
      						int edad;
      						string id;
@@ -75,7 +77,24 @@ int main(){
      						cin>>dificultad;
      						cout<<"Dinero del Casino: "<<endl;
      						cin>>dinero_casino;
-     						listarepartidor.push_back(new Repartidor(dificultad,dinero_casino,nombre,edad,id));
+     						for (int i = 0; i < 4; ++i){
+     							for (int j = 0; j < 12; ++j){
+     								if(i==1){
+     									listacartas.push_back(new Cartas(j,"♠","Negro"));
+     								}
+     								if(i==2){
+     									listacartas.push_back(new Cartas(j,"♥","Rojo"));
+     								}
+     								if(i==3){
+     									listacartas.push_back(new Cartas(j,"♦","Rojo"));
+     								}else{
+     									listacartas.push_back(new Cartas(j,"♣","Rojo"));
+     								}
+     							}
+     						Baraja* baraja = new Baraja(listacartas); 
+     						}
+
+     						listarepartidor.push_back(new Repartidor(dificultad,dinero_casino,listacartas,nombre,edad,id));
      						cout<<"El Repartidor fue agregado exitosamente!!! "<<endl;
      						cout<<endl;
      						break;
@@ -259,84 +278,7 @@ int menuAdministrador(){
 	return opcion;
 }
 
-string AleatorioValor() {
-	int random;
-	stringstream aleat;
-	string aleat2;
-	for (int i = 0; i < 52; ++i){
-		random = rand() % 10 + 0;
-		if (random == 2){
-			aleat << "2";
-		} else if (random == 3){
-			aleat << "3";
-		} else if (random == 4){
-			aleat << "4";
-		} else if (random == 5){
-			aleat << "5";
-		} else if (random == 6){
-			aleat << "6";
-		} else if (random == 7){
-			aleat << "7";
-		}else if(random==8){
-			aleat<<"8";
-		}else if(random==9){
-			aleat<<"9";
-		}else if(random==10){
-			aleat<<"10";
-		}else if(random=='J'){
-			aleat<<"10";
-		}else if(random=='Q'){
-			aleat<<"10";
-		}else if(random=='K'){
-			aleat<<"10";
-		}else if(random=='A'){
-			aleat<<"11";
-		} else {
-			aleat << random;
-		}
-	}
-	aleat2 = aleat.str();
-	return aleat2;
-}
-string AleatorioSimbolo() {
-	int random;
-	stringstream aleat;
-	string aleat2;
-	for (int i = 0; i < 4; ++i){
-		random = rand() % 10 + 0;
-		if (random == 2){
-			aleat << "2";
-		} else if (random == 3){
-			aleat << "3";
-		} else if (random == 4){
-			aleat << "4";
-		} else if (random == 5){
-			aleat << "5";
-		} else if (random == 6){
-			aleat << "6";
-		} else if (random == 7){
-			aleat << "7";
-		}else if(random==8){
-			aleat<<"8";
-		}else if(random==9){
-			aleat<<"9";
-		}else if(random==10){
-			aleat<<"10";
-		}else if(random=='J'){
-			aleat<<"10";
-		}else if(random=='Q'){
-			aleat<<"10";
-		}else if(random=='K'){
-			aleat<<"10";
-		}else if(random=='A'){
-			aleat<<"11";
-		} else {
-			aleat << random;
-		}
-	}
-	aleat2 = aleat.str();
-	return aleat2;
-}
+
 
 void listaJugador(vector<Jugadores*> listajugadores){
     cout<<"Lista de Jugadores"<<endl;

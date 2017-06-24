@@ -14,7 +14,7 @@ class Repartidor:public Persona{
 		double dinero_casino;
 		Baraja* baraja;
 	public:
-		Repartidor(string,double,string,int,string);
+		Repartidor(string,double,Baraja,string,int,string);
 		Repartidor();
 		string getDificultad();
 		void setDificultad(string);
