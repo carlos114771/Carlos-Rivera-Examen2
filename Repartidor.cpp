@@ -1,6 +1,6 @@
 #include "Repartidor.h"
 
-Repartidor::Repartidor(string dificultad,double dinero_casino,string nombre,int edad,string id, Baraja* baraja):Persona(nombre,edad,id){
+Repartidor::Repartidor(string dificultad,double dinero_casino,Baraja baraja,string nombre,int edad,string id):Persona(nombre,edad,id){
 	this->dificultad=dificultad;
 	this->dinero_casino=dinero_casino;
 }

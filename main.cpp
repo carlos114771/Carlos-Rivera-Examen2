@@ -13,7 +13,9 @@
 #include <string.h>
 using namespace std;
 int menuPersona();
+int menuJugador();
 int menuPrincipal();
+void listaCartas(vector<Cartas*>);
 void listaJugador(vector<Jugadores*>);
 void listaRepartidor(vector<Repartidor*>);
 int menuAdministrador();
@@ -88,12 +90,11 @@ int main(){
      								if(i==3){
      									listacartas.push_back(new Cartas(j,"♦","Rojo"));
      								}else{
-     									listacartas.push_back(new Cartas(j,"♣","Rojo"));
+     									listacartas.push_back(new Cartas(j,"♣","Negro"));
      								}
      							}
-     						Baraja* baraja = new Baraja(listacartas); 
      						}
-
+     						Baraja* baraja = new Baraja(listacartas); 
      						listarepartidor.push_back(new Repartidor(dificultad,dinero_casino,listacartas,nombre,edad,id));
      						cout<<"El Repartidor fue agregado exitosamente!!! "<<endl;
      						cout<<endl;
@@ -151,9 +152,19 @@ int main(){
      								cout<<"Ingres el tipo de mesa "<<endl;
      								cin>>tipo_mesa;
      								listamesas.push_back(new MesasBlackJack(numero_mesa,tipo_mesa));
-     								cout<<"La Mesa fue agregada exitosamente!!!";
+     								listaJugador(listajugadores);
+     								int posicionjugador;
+     								int posicionrepartidor;
      								cout<<"Asigne  un jugador a la mesa "<<endl;
-
+     								for (int i = 0; i < listajugadores.size(); ++i){
+     									cin>>posicionjugador;
+     								}
+     								listaRepartidor(listarepartidor);
+     								cout<<"Asigne un Repartidor a la mesa "<<endl;
+     								for(int i = 0; i < listarepartidor.size(); ++i){
+     									cin>>posicionrepartidor;
+     								}
+     								cout<<"La Mesa fue agregada exitosamente!!!"<<endl;
      								break;
      							}
      							case 2:{
@@ -196,14 +207,30 @@ int main(){
      			for (int i = 0; i < listajugadores.size(); ++i){
      				if(listajugadores.at(i)->getNombre()==nombre && listajugadores.at(i)->getId()==id){
      					cout<<"Bienvenido"<<endl;
+     					bool salirJuego=false;
+     					while(!salirJuego){
+     						switch(menuJugador()){
+     							case 1:{
+     								if(listamesas.size()==0){
+     									cout<<"No hay mesas creadas "<<endl;
+     									cout<<"No puede Jugar "<<endl;
+     									cout<<endl;
+     								}else{
+     									listaCartas(listacartas);
+     								}
+     								break;
+     							}
+     							case 2:{
+     								salirJuego=true;
+     								break;
+     							}
+     						}
+     					}
      				}
      			}	
      			break;
      		}
      		case 3:{
-     			break;
-     		}
-     		case 4:{
      			salirTodo=true;
      			break;
      		}
@@ -219,12 +246,11 @@ int opcion;
 		cout<< "-----MENU-----" << endl
 			<< "1.- Agregar Persona" << endl
 			<< "2.- Log in "<<endl
-			<< "3.- Jugar "<<endl
-			<< "4.- Salir" << endl;
+			<< "3.- Salir" << endl;
 		
 		cout<< "Ingrese una opcion: ";
 		cin>>opcion;
-		if (opcion > 0 && opcion <= 4)
+		if (opcion > 0 && opcion <= 3)
 			valido = true;
 		else {
 			cout << "Opcion no valida, intente de nuevo..." << endl;
@@ -277,6 +303,25 @@ int menuAdministrador(){
 	} while (!valido);
 	return opcion;
 }
+int menuJugador(){
+	int opcion;
+	bool valido = false;
+	do {
+		cout<< "-----MENU JUGADOR-----" << endl
+			<< "1.- Comenzar el Juego" << endl
+			<< "2.- Salir "<<endl;
+		
+		cout<< "Ingrese una opcion: ";
+		cin>>opcion;
+		if (opcion > 0 && opcion <= 2)
+			valido = true;
+		else {
+			cout << "Opcion no valida, intente de nuevo..." << endl;
+		}
+
+	} while (!valido);
+	return opcion;
+}
 
 
 
@@ -300,4 +345,13 @@ void listaRepartidor(vector<Repartidor*> listarepartidor){
         cout<<"Dificultad: "<<listarepartidor.at(i)->getDificultad()<<endl;
     }
 
+}
+
+void listaCartas(vector<Cartas*> listacartas){
+	cout<<" Lista de Cartas "<<endl;
+	for (int i = 0; i < listacartas.size(); ++i){
+		cout<<"Valor: "<<listacartas.at(i)->getValor()<<endl;
+		cout<<"Simbolo: "<<listacartas.at(i)->getSimbolo()<<endl;
+		cout<<"Color: "<<listacartas.at(i)->getColor()<<endl;
+	}
 }
