@@ -48,6 +48,11 @@ int main(){
      						cin>>id;
      						cout<< "Ingrese su experiencia laboral: "<<endl;
      						cin>>experiencia;
+     						cout<<" Tipo de Rango Laboral "<<endl
+     							<<"1 Gerente de Tiempo Completo "<<endl
+     							<<"2 Gerente de Medio Tiempo "<<endl
+     							<<"3 Gerente General "<<endl;
+     						cout<<endl;
      						cout<< "Ingrese su rango laboral: "<<endl;
      						cin>>rango;
      						cout<<"Sueldo a ganar: "<<endl;
@@ -178,6 +183,11 @@ int main(){
      									cin>>numero;
      									cout<<"Ingrese el numero de mesa "<<endl;
      									cin>>numero_mesa;
+     									cout<<" Tipo de Mesa "<<endl
+     										<<" VIP "<<endl
+     										<<" Clasica "<<endl
+     										<<" Viajero "<<endl;
+     									cout<<endl;
      									cout<<"Ingrese el tipo de mesa "<<endl;
      									cin>>tipo_mesa;
      									for (int j = 0; j < listamesas.size(); ++j){
@@ -216,7 +226,7 @@ int main(){
      									cout<<"No puede Jugar "<<endl;
      									cout<<endl;
      								}else{
-     									listaCartas(listacartas);
+     									//listaCartas(listacartas);
      								}
      								break;
      							}
@@ -328,10 +338,10 @@ int menuJugador(){
 void listaJugador(vector<Jugadores*> listajugadores){
     cout<<"Lista de Jugadores"<<endl;
     for(int i=0;i<listajugadores.size();i++){
-        cout<<"Nombre: "<<listajugadores.at(i)->getNombre()<<endl;
-        cout<<"Edad: "<<listajugadores.at(i)->getEdad()<<endl;
-        cout<<"Id: "<<listajugadores.at(i)->getId()<<endl;
-        cout<<"Apodo: "<<listajugadores.at(i)->getApodo()<<endl;
+        cout<<i<<" Nombre: "<<listajugadores.at(i)->getNombre()<<endl;
+        //cout<<"Edad: "<<listajugadores.at(i)->getEdad()<<endl;
+        //cout<<"Id: "<<listajugadores.at(i)->getId()<<endl;
+        //cout<<"Apodo: "<<listajugadores.at(i)->getApodo()<<endl;
     }
 
 }
@@ -339,10 +349,10 @@ void listaJugador(vector<Jugadores*> listajugadores){
 void listaRepartidor(vector<Repartidor*> listarepartidor){
     cout<<"Lista de Repartidores"<<endl;
     for(int i=0;i<listarepartidor.size();i++){
-        cout<<"Nombre: "<<listarepartidor.at(i)->getNombre()<<endl;
-        cout<<"Edad: "<<listarepartidor.at(i)->getEdad()<<endl;
-        cout<<"Id: "<<listarepartidor.at(i)->getId()<<endl;
-        cout<<"Dificultad: "<<listarepartidor.at(i)->getDificultad()<<endl;
+        cout<<i<<" Nombre: "<<listarepartidor.at(i)->getNombre()<<endl;
+        //cout<<"Edad: "<<listarepartidor.at(i)->getEdad()<<endl;
+        //cout<<"Id: "<<listarepartidor.at(i)->getId()<<endl;
+        //cout<<"Dificultad: "<<listarepartidor.at(i)->getDificultad()<<endl;
     }
 
 }
